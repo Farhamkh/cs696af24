@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 
 function Intro() {
@@ -9,6 +9,13 @@ function Intro() {
     function incrementCounter() {
         setCounter(counter + 1);
     }
+
+    useEffect(() => {
+        fetch('http://localhost:9000')
+        .then(response => response.text())
+        .then(response => console.log(response))
+        .catch(error => console.error(error));
+    }, []);
 
     // add decrementCounterFunction
 
